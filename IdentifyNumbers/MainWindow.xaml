@@ -1,0 +1,80 @@
+﻿<Window x:Class="IdentifyNumbers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IdentifyNumbers"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="146" Width="800">
+
+    <Window.Resources>
+        <Style x:Key="ButtonResource" TargetType="Button">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Margin" Value="20,20,20,0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="NextBottonResource" TargetType="Button">
+            <Setter Property="Margin" Value="10,10,10,10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BorderColor" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Gray" />
+        </Style>
+
+
+    </Window.Resources>
+
+    <Grid Background="#F0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <!-- 불러오기 -->
+        <Border Grid.Row="0" Style="{StaticResource BorderColor}" BorderThickness="0,0,0,3">
+            <!-- 위아래 경계선 -->
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="폴더명 : " Height="20" Margin="10,0,0,0"/>
+                    <Border BorderBrush="Black" BorderThickness="0.3" Width="400" Height="20"  Margin="3,0,0,0">
+                        <TextBlock x:Name="FolderName" Text="폴더경로"/>
+                    </Border>
+                    <Button x:Name="FindFolder" Content="불러오기..." Width="100" Height="20" Margin="10,0,0,0" Click="FindFolder_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!-- 하단 -->
+        <Grid Grid.Row="1">
+            <!-- 이미지 이름 출력 -->
+            <Border Style="{StaticResource BorderColor}" BorderThickness="0,0,0,3">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Grid.Row="0" Margin="5,5,5,5" Text=" FileName : " VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Grid.Row="0" Margin="0,5,5,5" Text="파일명" VerticalAlignment="Center" FontSize="20"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
